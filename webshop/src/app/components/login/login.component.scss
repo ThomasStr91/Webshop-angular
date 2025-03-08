@@ -11,12 +11,20 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-color: #C1D8C3;
 
 }
 
 
 mat-form-field {
     width: 100%; /* Lässt Inputfelder die volle Breite nutzen */
+    
+        .mat-form-field-label-required  {
+            color: blue;
+        }
   }
 
-
+.login-button {
+    background-color: #6A9C89;
+    width: 100px;
+}

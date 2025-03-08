@@ -1,9 +1,24 @@
-.product-details {
-    background: var(--accent-color);
-    border-radius: 30px;
-    padding-bottom: 30px;
-}
+/* In deiner component-spezifischen SCSS-Datei (z. B. product-details.component.scss) */
 
+.product-details {
+    button {
+      background-color: #C1D8C3; /* Hintergrundfarbe */
+      color: white; /* Textfarbe */
+      border-radius: 5px; /* Abgerundete Ecken */
+      padding: 10px 20px; /* Polsterung */
+      font-size: 16px; /* Schriftgröße */
+      transition: background-color 0.3s ease; /* Sanfte Übergangsanimation */
+      
+      &:hover {
+        background-color: #ff8c00; /* Farbänderung beim Hover */
+      }
+  
+      &:focus {
+        outline: none; /* Entfernt den Standard-Fokusrahmen */
+      }
+    }
+  }
+  
 .product-picture {
     height: 250px;
     width: 100%;
@@ -14,12 +29,10 @@
 .product-name{
         color: var(--primary-color);
         padding: 10px 20px 0 20px;
+    font-size: larger;
+    font-weight: bold;
 }
 
 .product-description {
     padding: 10px 20px 20px 20px;
 }
-
-// .product-price{
-
-// }
