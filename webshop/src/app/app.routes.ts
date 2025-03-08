@@ -1,3 +1,11 @@
 import { Routes } from '@angular/router';
+import { LayoutComponent } from './components/layout/layout.component';
+import { ShoppingGoodsComponent } from './components/shopping-goods/shopping-goods.component';
+import { LoginComponent } from './components/login/login.component';
+import { BasketComponent } from './components/basket/basket.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+    { path: '', component: LoginComponent },
+    { path: 'shopping-goods', component: ShoppingGoodsComponent },
+    { path: '**', redirectTo: 'login' } // Standardmäßig zur Login-Seite
+];

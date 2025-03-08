@@ -1,0 +1,20 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;  /* Verhindert das Herauslaufen */
+  }
+  
+  .example-spacer {
+    flex: 1;
+  }
+  
+  .example-icon {
+    margin-left: 30px;
+    margin-right: 20px;
+  }
+  
