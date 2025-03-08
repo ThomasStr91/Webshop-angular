@@ -1,1 +1,11 @@
-{{childProduct?.name}}
+<mat-card appearance="outlined" class="product-details">
+ <img [src]="childProduct?.picture" mat-card-image class="product-picture">
+ <!-- <img src="assets/{{childProduct?.picture}}" mat-card-image class="product-picture"> -->
+    <mat-card-content class="product-name">{{childProduct?.name}}</mat-card-content>
+    <mat-card-content class="product-description">{{childProduct?.description}}</mat-card-content>
+    <mat-card-content class="product-price">{{childProduct?.price}}</mat-card-content>
+    <button mat-button>In den Warenkorb</button>
+  </mat-card>
+
+
+
