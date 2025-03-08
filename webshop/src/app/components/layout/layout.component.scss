@@ -18,3 +18,11 @@
     margin-right: 20px;
   }
   
+  .title-button {
+    background: none;
+    border: none;
+    color: inherit; /* Nimmt die Standard-Textfarbe des Toolbars */
+    font-size: inherit;
+    cursor: pointer;
+    padding: 0;
+  }

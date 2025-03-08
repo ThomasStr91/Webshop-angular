@@ -10,10 +10,13 @@
     height: 300px;
     justify-content: center;
     align-items: center;
+    text-align: center;
+
 }
 
-.input-field {
-    width: 300px;
-}
+
+mat-form-field {
+    width: 100%; /* Lässt Inputfelder die volle Breite nutzen */
+  }
 
 

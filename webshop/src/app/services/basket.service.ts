@@ -15,4 +15,6 @@ export class BasketService {
   getAllProducts(): Observable<Goods[]>{
   return this.httpClient.get<Goods[]>(BasketService.USERS_URL)
   }
+
+  
 }

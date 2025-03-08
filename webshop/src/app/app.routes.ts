@@ -7,5 +7,6 @@ import { BasketComponent } from './components/basket/basket.component';
 export const routes: Routes = [
     { path: '', component: LoginComponent },
     { path: 'shopping-goods', component: ShoppingGoodsComponent },
-    { path: '**', redirectTo: 'login' } // Standardmäßig zur Login-Seite
+    { path: '**', redirectTo: 'login' },
+    { path: 'basket', component: BasketComponent}
 ];
