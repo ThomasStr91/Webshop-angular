@@ -2,19 +2,19 @@
 
 .product-details {
     button {
-      background-color: #C1D8C3; /* Hintergrundfarbe */
-      color: white; /* Textfarbe */
-      border-radius: 5px; /* Abgerundete Ecken */
-      padding: 10px 20px; /* Polsterung */
-      font-size: 16px; /* Schriftgröße */
-      transition: background-color 0.3s ease; /* Sanfte Übergangsanimation */
+      background-color: #C1D8C3; 
+      color: white; 
+      border-radius: 5px; 
+      padding: 10px 20px;
+      font-size: 16px;
+      transition: background-color 0.3s ease; 
       
       &:hover {
-        background-color: #ff8c00; /* Farbänderung beim Hover */
+        background-color: #ff8c00; 
       }
   
       &:focus {
-        outline: none; /* Entfernt den Standard-Fokusrahmen */
+        outline: none;
       }
     }
   }
