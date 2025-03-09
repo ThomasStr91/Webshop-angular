@@ -3,17 +3,20 @@
         {
             "id": 0,
             "userName": "Thomas",
-            "userPassword": "Thomas"
+            "userPassword": "Thomas",
+            "cart": []
         },
         {
             "id":1,
             "userName": "Robert",
-            "userPassword": "Robert"
+            "userPassword": "Robert",
+            "cart": []
         },
         {   
             "id":2,
             "userName": "Dominik",
-            "userPassword": "Dominik"
+            "userPassword": "Dominik",
+            "cart": []
         }
     ],
     "goods": [

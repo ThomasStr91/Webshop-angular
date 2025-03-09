@@ -5,7 +5,7 @@
     <mat-card-content class="product-name">{{childProduct?.name}}</mat-card-content>
     <mat-card-content class="product-description">{{childProduct?.description}}</mat-card-content>
     <mat-card-content class="product-price">{{childProduct?.price}} €</mat-card-content>
-    <button mat-button color="#FFA725">In den Warenkorb</button>
+    <button mat-button color="#FFA725" (click)="addToCart(childProduct?.id)">In den Warenkorb</button>
   </mat-card>
 
 

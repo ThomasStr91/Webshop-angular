@@ -34,6 +34,8 @@ export class LoginComponent {
   errorMessage: string = '';
 
   users: User[] = [];
+
+  currentUser: User | null = null;
   
   constructor(private userService: UserService, 
     private router: Router,
@@ -48,10 +50,10 @@ export class LoginComponent {
     const user = this.users.find(u => u.userName ===this.userName && u.userPassword === this.password) ;
 
   if(user){
+    this.currentUser = user; 
     localStorage.setItem('currentUser', user.userName);
     this.router.navigate(['/shopping-goods']);
-    console.log(this.userName);
-    
+    console.log(this.userName);    
   } else {
     this.showErrorMessage("Falscher Benutzername oder Passwort");
   }
