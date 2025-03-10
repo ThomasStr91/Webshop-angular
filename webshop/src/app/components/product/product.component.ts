@@ -30,9 +30,7 @@ export class ProductComponent {
 
   addToBasket() {
     if (this.childProduct) {
-      // Ruft die ID und den Preis aus dem childProduct ab
       const { productId, price } = this.childProduct;
-      // Ruft die Methode von basketService auf, um das Produkt hinzuzufügen
       this.basketService.addToBasket(productId, price).subscribe(response => {
         console.log("Produkt wurde zum Warenkorb hinzugefügt", response);
       }, error => {

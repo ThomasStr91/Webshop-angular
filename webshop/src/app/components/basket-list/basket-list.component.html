@@ -1,12 +1,9 @@
-<p>basket-list works!</p>
 
-<mat-card appearance="outlined" >
-       <mat-card-content class="product-name">{{childItem?.productPrice}}</mat-card-content>
-<mat-card-content> </mat-card-content>
-<mat-card-content> </mat-card-content>
-<mat-card-content> </mat-card-content>
-     </mat-card>
-   
-   
-   
-   
+
+<mat-card appearance="outlined" class="basket-details">
+
+       <mat-card-content class="product-name">{{ getProductName(childItem?.productId)}}</mat-card-content>
+       <mat-card-content class="product-price">{{childItem?.productPrice}}</mat-card-content>
+       <button mat-button (click)="deleteItem()">Löschen</button>
+
+</mat-card>

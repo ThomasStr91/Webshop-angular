@@ -3,104 +3,70 @@
     {
       "userId": 0,
       "userName": "Thomas",
-      "userPassword": "Thomas"
+      "userPassword": "Thomas",
+      "id": "4cbc"
     },
     {
       "userId": 1,
       "userName": "Robert",
-      "userPassword": "Robert"
+      "userPassword": "Robert",
+      "id": "bdb5"
     },
     {
       "userIdd": 2,
       "userName": "Dominik",
-      "userPassword": "Dominik"
+      "userPassword": "Dominik",
+      "id": "59fe"
     }
   ],
   "goods": [
     {
       "productId": "0",
-      "name": "Tiger",
+      "productName": "Tiger",
       "description": "Sieht gefährlich aus, aber doch recht zahm",
       "picture": "/assets/Tiger.jpeg",
-      "price": 2.99
+      "price": 2.99,
+      "id": "f322"
     },
     {
       "productId": "1",
-      "name": "Axoltol",
+      "productName": "Axoltol",
       "description": "Hat sich bereits 3 Beine nachwachsen lassen",
       "picture": "/assets/Axolotl.jpg",
-      "price": 30.47
+      "price": 30.47,
+      "id": "c169"
     },
     {
       "productId": "2",
-      "name": "Robert",
+      "productName": "Robert",
       "description": "Gewöhnt sich schnell an eine neue Umgebung",
       "picture": "/assets/Robert.jpeg",
-      "price": 10000390.27
+      "price": 10000390.27,
+      "id": "4dc0"
     },
     {
       "productId": "3",
-      "name": "Stift",
+      "productName": "Stift",
       "description": "Man sagt Mozart habe mit diesem Stift die Klaviersonate Nr 11 und Le nozze di Figaro damit geschrieben ",
       "picture": "/assets/Stift.jpg",
-      "price": 9.99
+      "price": 9.99,
+      "id": "c8ea"
     },
     {
       "productId": "4",
-      "name": "Headset",
+      "productName": "Headset",
       "description": "Hat bereits einige Würfe gegen die Wand überstanden infolge von Rage quits",
       "picture": "/assets/Headset.jpg",
-      "price": 59.9
+      "price": 59.9,
+      "id": "9161"
     }
   ],
   "basket": [
     {
-      "id": "a1c3",
+      "id": "6259",
       "productId": "0",
       "productPrice": 2.99,
       "userId": "Thomas"
-    },
-    {
-      "id": "0c7f",
-      "productId": "1",
-      "productPrice": 30.47,
-      "userId": "Thomas"
-    },
-    {
-      "id": "68fb",
-      "productId": "0",
-      "productPrice": 2.99,
-      "userId": "Thomas"
-    },
-    {
-      "id": "9377",
-      "productId": "2",
-      "productPrice": 10000390.27,
-      "userId": "Thomas"
-    },
-    {
-      "id": "8d09",
-      "productId": "0",
-      "productPrice": 2.99,
-      "userId": "Robert"
-    },
-    {
-      "id": "126b",
-      "productId": "0",
-      "productPrice": 2.99,
-      "userId": "Robert"
-    },
-    {
-      "id": "c7ab",
-      "productId": "1",
-      "productPrice": 30.47,
-      "userId": "Robert"
-    },
-    {
-      "id": "514f",
-      "productId": "2",
-      "productPrice": 10000390.27,
-      "userId": "Robert"
     }
   ]
 }

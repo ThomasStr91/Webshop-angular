@@ -9,17 +9,28 @@ import { BasketItem } from '../interfaces/basket-item';
 })
 export class BasketService {
 
+
+  private goods: Goods[] = [];
+
   private static BASKET_URL ="http://localhost:3000/basket"
+  private static GOODS_URL = "http://localhost:3000/goods"; 
 
-  constructor( private httpClient: HttpClient) { }
 
+  constructor( private httpClient: HttpClient) { this.getGoods();}
 
-  getBasket():Observable<BasketItem[]>{
-    const currentUser = localStorage.getItem("currentUser");
-
-    return this.httpClient.get<BasketItem[]>(BasketService.BASKET_URL)
-    .pipe(map(basketItems => basketItems.filter(item => item.userId === currentUser)))
+  private getGoods(){
+      this.httpClient.get<Goods[]>(BasketService.GOODS_URL).subscribe((data)=>{
+        this.goods = data;
+      })
   }
+
+  getBasket(): Observable<BasketItem[]> {
+    const currentUser = localStorage.getItem("currentUser");
+  
+    return this.httpClient.get<BasketItem[]>(BasketService.BASKET_URL)
+      
+  }
+  
 
   addToBasket(id: string, price: number){
     const product: BasketItem = {
@@ -31,9 +42,8 @@ export class BasketService {
     return this.httpClient.post<BasketItem>(BasketService.BASKET_URL, product)
   }
 
-  // getProductName(productId: string): string {
-  //   return this.products.find(product => product.id === productId)?.name || 'Unbekanntes Produkt';
-  // }
- 
- 
+  deleteItem(productId: string |  undefined): Observable<BasketItem>{
+    const url = `${BasketService.BASKET_URL}/${productId}`
+    return this.httpClient.delete<BasketItem>(url)
+  }
 }
