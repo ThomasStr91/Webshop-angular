@@ -1,3 +1,7 @@
 .basketview{
-    
+    display: flex;
+    flex-direction: column;  /* Stapelt die Elemente untereinander */
+    gap: 10px;               /* Abstand zwischen den Listenelementen */
+    align-items: center;
+   
 }

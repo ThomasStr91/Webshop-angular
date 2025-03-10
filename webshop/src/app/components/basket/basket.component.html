@@ -1,3 +1,10 @@
 <section class="basketview">
     <app-basket-list *ngFor="let item of basketItems" [childItem]="item"> </app-basket-list>
 </section>
+
+
+<mat-card>
+    <h2>Gesamtpreis: {{ getTotalPrice()}}</h2>
+    <button mat-button (click)="deleteBasket()">Warenkorb leeren</button>
+    <button mat-button (click)="sendOrder()">Bestellung abschicken</button>
+</mat-card>

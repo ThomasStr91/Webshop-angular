@@ -7,10 +7,12 @@ import { MatButton } from '@angular/material/button';
 import { BasketService } from '../../services/basket.service';
 import { Goods } from '../../interfaces/goods';
 import { ProductService } from '../../services/product.service';
+import {MatListModule} from '@angular/material/list';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-basket-list',
-  imports: [MatCard, MatCardContent, CommonModule, MatButton],
+  imports: [MatCard, MatCardContent, CommonModule, MatButton, MatListModule, MatIcon],
   templateUrl: './basket-list.component.html',
   styleUrl: './basket-list.component.scss'
 })
@@ -33,6 +35,10 @@ export class BasketListComponent implements OnInit {
 
     getProductName(productId: string | undefined): string {
       return this.goods.find(product => productId === product.productId)?.productName || 'Unbekanntes Produkt';
+    }
+
+    getProductPhoto(productId: string | undefined): string {
+      return this.goods.find(pro => productId === pro.productId)?.picture || 'Kein Bild vorhanden';
     }
   
     loadBasketItems(): void {

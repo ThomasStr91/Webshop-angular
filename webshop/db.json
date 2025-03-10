@@ -63,9 +63,27 @@
   ],
   "basket": [
     {
-      "id": "6259",
+      "id": "de0f",
       "productId": "0",
       "productPrice": 2.99,
+      "userId": "Thomas"
+    },
+    {
+      "id": "6e99",
+      "productId": "0",
+      "productPrice": 2.99,
+      "userId": "Thomas"
+    },
+    {
+      "id": "bc94",
+      "productId": "1",
+      "productPrice": 30.47,
+      "userId": "Thomas"
+    },
+    {
+      "id": "5b4e",
+      "productId": "2",
+      "productPrice": 10000390.27,
       "userId": "Thomas"
     }
   ]

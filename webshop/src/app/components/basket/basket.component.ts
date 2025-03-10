@@ -3,10 +3,12 @@ import { BasketItem } from '../../interfaces/basket-item';
 import { BasketService } from '../../services/basket.service';
 import { BasketListComponent } from "../basket-list/basket-list.component";
 import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-basket',
-  imports: [BasketListComponent, CommonModule],
+  imports: [BasketListComponent, CommonModule, MatCardModule, MatButton],
   templateUrl: './basket.component.html',
   styleUrl: './basket.component.scss'
 })
@@ -21,4 +23,15 @@ export class BasketComponent {
     })
   }
 
+  deleteBasket(){
+    this.basketService.clearBasket()
+  }
+
+  sendOrder(){
+
+  }
+
+  getTotalPrice(){
+    return this.basketItems.reduce((total, item) => total + item.productPrice, 0)
+  }
 }

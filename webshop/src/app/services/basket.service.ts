@@ -26,9 +26,9 @@ export class BasketService {
 
   getBasket(): Observable<BasketItem[]> {
     const currentUser = localStorage.getItem("currentUser");
-  
-    return this.httpClient.get<BasketItem[]>(BasketService.BASKET_URL)
-      
+    return this.httpClient.get<BasketItem[]>(BasketService.BASKET_URL).pipe(
+      map(basketItems => basketItems.filter(item => item.userId === currentUser))
+    )
   }
   
 
@@ -45,5 +45,16 @@ export class BasketService {
   deleteItem(productId: string |  undefined): Observable<BasketItem>{
     const url = `${BasketService.BASKET_URL}/${productId}`
     return this.httpClient.delete<BasketItem>(url)
+  }
+
+  clearBasket(){
+    const user = localStorage.getItem("currentUser");
+    if(user){
+      this.getBasket().subscribe(items => {
+        items.forEach(item => {
+          this.httpClient.delete(`${BasketService.BASKET_URL}/${item.id}`).subscribe;
+        })
+      })
+    }
   }
 }
