@@ -57,6 +57,7 @@ export class LoginComponent {
   } else {
     this.showErrorMessage("Falscher Benutzername oder Passwort");
   }
+  
 }
 showErrorMessage(message: string) {
   this.snackBar.open(message, 'OK', { // ✅ Snackbar öffnen

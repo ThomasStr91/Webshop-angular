@@ -1,6 +1,6 @@
 export interface Goods {
-    id: string, 
-    name: string, 
+    productId: string, 
+    productName: string, 
     description: string, 
     picture: string, 
     price: number

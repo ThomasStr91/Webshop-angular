@@ -1,1 +1,8 @@
 <p>basket works!</p>
+
+{{ basketItems[1].productPrice }}
+
+<section class="basketview">
+
+    <app-basket-list *ngFor="let item of basketItems" [childItem]="item"> </app-basket-list>
+    </section>

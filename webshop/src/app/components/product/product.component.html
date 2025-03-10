@@ -1,11 +1,9 @@
 <mat-card appearance="outlined" class="product-details">
  <img [src]="childProduct?.picture" mat-card-image class="product-picture">
- <img mat-card-image [src]="'../../assets/'+ childProduct?.picture" alt="Tiger">
- <!-- <img src="assets/{{childProduct?.picture}}" mat-card-image class="product-picture"> -->
-    <mat-card-content class="product-name">{{childProduct?.name}}</mat-card-content>
+    <mat-card-content class="product-name">{{childProduct?.productName}}</mat-card-content>
     <mat-card-content class="product-description">{{childProduct?.description}}</mat-card-content>
     <mat-card-content class="product-price">{{childProduct?.price}} €</mat-card-content>
-    <button mat-button color="#FFA725" (click)="addToCart(childProduct?.id)">In den Warenkorb</button>
+    <button mat-button color="#FFA725" (click)="addToBasket()">In den Warenkorb</button>
   </mat-card>
 
 

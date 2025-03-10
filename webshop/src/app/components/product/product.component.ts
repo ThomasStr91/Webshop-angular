@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Goods } from '../../interfaces/goods';
-import { MatButton, MatButtonModule } from '@angular/material/button';
-import { MatCard, MatCardModule } from '@angular/material/card';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
+import { BasketService } from '../../services/basket.service';
 
 
 @Component({
@@ -22,38 +22,26 @@ import { UserService } from '../../services/user.service';
 
 export class ProductComponent {
 
+
   @Input() childProduct: Goods | undefined;
 
-  constructor(private userService: UserService, private snackbar: MatSnackBar) { }
-
-  addToCart(product: Goods) {
-    const currentUserString = localStorage.getItem('currentUser');
-    if (!currentUserString) {
-      this.showErrorMessage("Bitte zuerst einloggen!");
-      return;
-    }
-
-    const currentUser = JSON.parse(currentUserString); 
-
-    this.userService.addToCart(currentUser.id, product).subscribe(
-      () => {this.showSuccessMessage("Produkt wurde zum Warenkorb hinzugefügt!");},
-      error => {this.showErrorMessage("Fehler beim Hinzufügen des Produkts!"); }
-    );
-
-
+  constructor(private userService: UserService, private basketService: BasketService) {
   }
-  showSuccessMessage(message: string) {
-    this.snackbar.open(message, 'OK', {
-      duration: 3000,
-      horizontalPosition: 'center',
-      verticalPosition: 'bottom',
-    });}
 
-    showErrorMessage(message: string) {
-      this.snackbar.open(message, 'OK', { // ✅ Snackbar öffnen
-        duration: 3000, // ✅ 5 Sekunden anzeigen
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom',
+  addToBasket() {
+    if (this.childProduct) {
+      // Ruft die ID und den Preis aus dem childProduct ab
+      const { productId, price } = this.childProduct;
+      // Ruft die Methode von basketService auf, um das Produkt hinzuzufügen
+      this.basketService.addToBasket(productId, price).subscribe(response => {
+        console.log("Produkt wurde zum Warenkorb hinzugefügt", response);
+      }, error => {
+        console.error("Fehler beim Hinzufügen zum Warenkorb", error);
       });
-    }}
+      console.log("Test");
+      
+    }
+  }
+}
+
 

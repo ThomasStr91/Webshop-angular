@@ -3,6 +3,7 @@ import { ProductComponent } from "../product/product.component";
 import { Goods } from '../../interfaces/goods';
 import { BasketService } from '../../services/basket.service';
 import { CommonModule } from '@angular/common';
+import { ProductService } from '../../services/product.service';
 
 
 @Component({
@@ -17,9 +18,9 @@ import { CommonModule } from '@angular/common';
 export class ShoppingGoodsComponent {
   products: Goods[] = [];
 
-  constructor(private basketService: BasketService){
+  constructor(private productService: ProductService){
 
-    basketService.getAllProducts().subscribe((data: Goods[]) => {
+    productService.getAllProducts().subscribe((data: Goods[]) => {
       console.log("insideSubsciption", data);
       this.products = data; 
     })

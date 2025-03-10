@@ -1,6 +1,5 @@
 export interface User {
-    id: string, 
+    userId: string, 
     userName: string, 
     userPassword: string,
-    cart?: any[]
 }
