@@ -1,5 +1,5 @@
 <section class="container">
-    <table mat-table [dataSource]="users" class="user-table mat-elevation-z8  ">
+    <table mat-table [dataSource]="usersSubject.asObservable()" class="user-table mat-elevation-z8  ">
     <!-- Username Column -->
     <ng-container matColumnDef="userName">
       <th mat-header-cell *matHeaderCellDef> Username </th>

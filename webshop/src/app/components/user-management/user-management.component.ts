@@ -15,6 +15,7 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-management',
@@ -36,12 +37,14 @@ export class UserManagementComponent {
 
   readonly dialog = inject(MatDialog);
 
-  users: User[] = []
+  usersSubject = new BehaviorSubject<User[]>([])
+
   displayedColumns: string[] = ['userName', 'userRole', 'actions']
 
   constructor(private userService: UserService) {
+
     userService.getAllUsers().subscribe((data: User[]) => {
-      this.users = data;
+      this.usersSubject.next(data);
     })
   }
 
@@ -61,9 +64,11 @@ export class UserManagementComponent {
 
   updateUser(updatedUser: User) {
     this.userService.updateUser(updatedUser).subscribe(() => {
-      const index = this.users.findIndex(u => u.id === updatedUser.id);
+      let usersArray = this.usersSubject.getValue()
+      const index = usersArray.findIndex(u => u.id === updatedUser.id);
       if (index !== -1) {
-        this.users[index] = updatedUser; 
+        usersArray[index] = updatedUser; 
+        this.usersSubject.next(usersArray)
       }
     });
   }

@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "4cbc",
-      "userName": "Thomasdawd",
+      "userName": "Thomas",
       "userPassword": "Thomas",
       "userRole": "Admin"
     },
@@ -121,6 +121,12 @@
       "productId": "0",
       "productPrice": 2.99,
       "userId": "{\"userName\":\"Thomas\",\"role\":\"User\"}"
+    },
+    {
+      "id": "df4e",
+      "productId": "1",
+      "productPrice": 30.47,
+      "userId": "{\"userName\":\"admin\",\"role\":\"Admin\"}"
     }
   ]
 }
