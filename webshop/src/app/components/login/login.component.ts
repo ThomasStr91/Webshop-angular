@@ -38,40 +38,17 @@ export class LoginComponent {
 
   currentUser: User | null = null;
 
-  constructor(private userService: UserService,
-    private router: Router,
-    private snackBar: MatSnackBar,
-    private loginService: LoginService) {
-
+  constructor(
+    private userService: UserService,
+    private loginService: LoginService) 
+    {
     userService.getAllUsers().subscribe((data: User[]) => {
       this.users = data
     })
   }
 
   login() {
-    const user = this.users.find(u => u.userName === this.userName && u.userPassword === this.password);
-
-    if (user) {
-      this.currentUser = user;
-      localStorage.setItem('currentUser', user.userName);
-
       this.loginService.validateLogin(this.userName, this.password).subscribe((result: boolean) => {
         console.log("login", result); })
-
-      this.router.navigate(['/shopping-goods']);
-      console.log(this.userName);        
-      
-    } else {
-      this.showErrorMessage("Falscher Benutzername oder Passwort");
-    }
-
-  }
-  showErrorMessage(message: string) {
-    this.snackBar.open(message, 'OK', { // ✅ Snackbar öffnen
-      duration: 3000, // ✅ 5 Sekunden anzeigen
-      horizontalPosition: 'center',
-      verticalPosition: 'bottom',
-    });
-  }
+      }
 }
-
