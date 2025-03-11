@@ -11,16 +11,17 @@ import { Observable } from 'rxjs';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
   imports: [
-    CommonModule, 
-    FormsModule, 
-    MatCardModule, 
-    MatButtonModule, 
-    MatFormFieldModule, 
-    MatInputModule, 
+    CommonModule,
+    FormsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
 
   ],
   templateUrl: './login.component.html',
@@ -36,35 +37,41 @@ export class LoginComponent {
   users: User[] = [];
 
   currentUser: User | null = null;
-  
-  constructor(private userService: UserService, 
+
+  constructor(private userService: UserService,
     private router: Router,
-  private snackBar: MatSnackBar){
+    private snackBar: MatSnackBar,
+    private loginService: LoginService) {
 
     userService.getAllUsers().subscribe((data: User[]) => {
       this.users = data
     })
   }
 
-  login()  {
-    const user = this.users.find(u => u.userName ===this.userName && u.userPassword === this.password) ;
+  login() {
+    const user = this.users.find(u => u.userName === this.userName && u.userPassword === this.password);
 
-  if(user){
-    this.currentUser = user; 
-    localStorage.setItem('currentUser', user.userName);
-    this.router.navigate(['/shopping-goods']);
-    console.log(this.userName);    
-  } else {
-    this.showErrorMessage("Falscher Benutzername oder Passwort");
+    if (user) {
+      this.currentUser = user;
+      localStorage.setItem('currentUser', user.userName);
+
+      this.loginService.validateLogin(this.userName, this.password).subscribe((result: boolean) => {
+        console.log("login", result); })
+
+      this.router.navigate(['/shopping-goods']);
+      console.log(this.userName);        
+      
+    } else {
+      this.showErrorMessage("Falscher Benutzername oder Passwort");
+    }
+
   }
-  
-}
-showErrorMessage(message: string) {
-  this.snackBar.open(message, 'OK', { // ✅ Snackbar öffnen
-    duration: 3000, // ✅ 5 Sekunden anzeigen
-    horizontalPosition: 'center',
-    verticalPosition: 'bottom',
-  });
-}
+  showErrorMessage(message: string) {
+    this.snackBar.open(message, 'OK', { // ✅ Snackbar öffnen
+      duration: 3000, // ✅ 5 Sekunden anzeigen
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+    });
+  }
 }
 

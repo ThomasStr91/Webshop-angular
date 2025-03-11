@@ -21,7 +21,6 @@ export class ShoppingGoodsComponent {
   constructor(private productService: ProductService){
 
     productService.getAllProducts().subscribe((data: Goods[]) => {
-      console.log("insideSubsciption", data);
       this.products = data; 
     })
   }

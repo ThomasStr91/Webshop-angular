@@ -4,19 +4,29 @@
       "userId": 0,
       "userName": "Thomas",
       "userPassword": "Thomas",
+      "userRole": "User",
       "id": "4cbc"
     },
     {
       "userId": 1,
       "userName": "Robert",
       "userPassword": "Robert",
+      "userRole": "User",
       "id": "bdb5"
     },
     {
-      "userIdd": 2,
+      "userId": 2,
       "userName": "Dominik",
       "userPassword": "Dominik",
+      "userRole": "User",
       "id": "59fe"
+    },
+    {
+      "userId": 100,
+      "userName": "admin",
+      "userPassword": "admin",
+      "userRole": "Admin",
+      "id": "1000"
     }
   ],
   "goods": [
@@ -73,6 +83,18 @@
       "productId": "2",
       "productPrice": 10000390.27,
       "userId": "Thomas"
+    },
+    {
+      "id": "f00a",
+      "productId": "1",
+      "productPrice": 30.47,
+      "userId": "admin"
+    },
+    {
+      "id": "1b85",
+      "productId": "0",
+      "productPrice": 2.99,
+      "userId": "{\"userName\":\"admin\",\"role\":\"Admin\"}"
     }
   ]
 }
