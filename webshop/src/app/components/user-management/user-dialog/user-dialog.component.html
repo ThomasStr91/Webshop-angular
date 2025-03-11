@@ -2,14 +2,20 @@
 <mat-dialog-content>
     <mat-form-field>
         <mat-label>UserName</mat-label>
-        <input matInput>
+        <input matInput [(ngModel)]="user.userName">
     </mat-form-field>
+
+    <!-- Rollenauswahl als Dropdown -->
     <mat-form-field>
-        <mat-label> Rolle</mat-label>
-        <input matInput>
+        <mat-label>Rolle</mat-label>
+        <mat-select [(ngModel)]="user.userRole">
+            <mat-option value="User">User</mat-option>
+            <mat-option value="Admin">Admin</mat-option>
+        </mat-select>
     </mat-form-field>
 </mat-dialog-content>
+
 <mat-dialog-actions>
     <button mat-button mat-dialog-close>Schließen</button>
-    <button mat-button mat-dialog-close cdkFocusInitial (click)="updateUser()">Übernehmen</button>
+    <button mat-button (click)="save()">Übernehmen</button>
 </mat-dialog-actions>

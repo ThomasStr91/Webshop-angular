@@ -2,9 +2,9 @@
   "users": [
     {
       "id": "4cbc",
-      "userName": "Thomas",
+      "userName": "Thomasdawd",
       "userPassword": "Thomas",
-      "userRole": "User"
+      "userRole": "Admin"
     },
     {
       "id": "bdb5",
