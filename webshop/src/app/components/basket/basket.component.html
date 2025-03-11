@@ -1,10 +1,18 @@
-<section class="basketview">
+<section *ngIf="basketItems.length > 0; else emptyBasket" class="basketview">
     <app-basket-list *ngFor="let item of basketItems" [childItem]="item"> </app-basket-list>
 </section>
 
 
-<mat-card>
+<mat-card class="checkout">
     <h2>Gesamtpreis: {{ getTotalPrice()}}</h2>
     <button mat-button (click)="deleteBasket()">Warenkorb leeren</button>
     <button mat-button (click)="sendOrder()">Bestellung abschicken</button>
 </mat-card>
+
+<ng-template #emptyBasket>
+    <mat-card class="empty-basket-card">
+        <mat-card-content class="empty-basket">
+            <h1>Dein Warenkorb ist leer.</h1>
+        </mat-card-content>
+    </mat-card>
+</ng-template>

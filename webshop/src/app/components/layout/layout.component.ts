@@ -22,6 +22,7 @@ import { CommonModule } from '@angular/common';
 })
 export class LayoutComponent {
 
+  user = localStorage.getItem("currentUser")
   constructor(private router: Router){}
 
   isLoggedIn(): boolean {

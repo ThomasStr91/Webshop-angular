@@ -8,6 +8,7 @@
     align-items: center;
     overflow: hidden;  /* Verhindert das Herauslaufen */
     background-color: #C1D8C3;
+    position: relative
   }
   
   .example-spacer {
@@ -26,4 +27,14 @@
     font-size: inherit;
     cursor: pointer;
     padding: 0;
+  }
+
+  .greeting {
+    margin-left: 300px;
+  }
+
+  .greeting-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
