@@ -1,32 +1,28 @@
 {
   "users": [
     {
-      "userId": 0,
+      "id": "4cbc",
       "userName": "Thomas",
       "userPassword": "Thomas",
-      "userRole": "User",
-      "id": "4cbc"
+      "userRole": "User"
     },
     {
-      "userId": 1,
+      "id": "bdb5",
       "userName": "Robert",
       "userPassword": "Robert",
-      "userRole": "User",
-      "id": "bdb5"
+      "userRole": "User"
     },
     {
-      "userId": 2,
+      "id": "59fe",
       "userName": "Dominik",
       "userPassword": "Dominik",
-      "userRole": "User",
-      "id": "59fe"
+      "userRole": "User"
     },
     {
-      "userId": 100,
+      "id": "1000",
       "userName": "admin",
       "userPassword": "admin",
-      "userRole": "Admin",
-      "id": "1000"
+      "userRole": "Admin"
     }
   ],
   "goods": [
@@ -95,6 +91,36 @@
       "productId": "0",
       "productPrice": 2.99,
       "userId": "{\"userName\":\"admin\",\"role\":\"Admin\"}"
+    },
+    {
+      "id": "fc39",
+      "productId": "0",
+      "productPrice": 2.99,
+      "userId": ""
+    },
+    {
+      "id": "117b",
+      "productId": "0",
+      "productPrice": 2.99,
+      "userId": ""
+    },
+    {
+      "id": "27f8",
+      "productId": "0",
+      "productPrice": 2.99,
+      "userId": ""
+    },
+    {
+      "id": "e4e0",
+      "productId": "0",
+      "productPrice": 2.99,
+      "userId": ""
+    },
+    {
+      "id": "d74d",
+      "productId": "0",
+      "productPrice": 2.99,
+      "userId": "{\"userName\":\"Thomas\",\"role\":\"User\"}"
     }
   ]
 }

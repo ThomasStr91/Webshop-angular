@@ -4,11 +4,13 @@ import { ShoppingGoodsComponent } from './components/shopping-goods/shopping-goo
 import { LoginComponent } from './components/login/login.component';
 import { BasketComponent } from './components/basket/basket.component';
 import { UserManagementComponent } from './components/user-management/user-management.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 export const routes: Routes = [
-    { path: '', component: LoginComponent },
+    { path: 'login', component: LoginComponent },
+    { path: '', redirectTo: 'login', pathMatch: 'full'},
     { path: 'shopping-goods', component: ShoppingGoodsComponent },
-    { path: '**', redirectTo: 'login' },
     { path: 'basket', component: BasketComponent},
-    { path: 'user', component: UserManagementComponent}
+    { path: 'user', component: UserManagementComponent},
+    { path: '**', component: PageNotFoundComponent },
 ];

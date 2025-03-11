@@ -1,7 +1,6 @@
 <mat-card appearance="outlined" class="basket-details">
        <mat-list>
               <mat-list-item class="product-name">{{ getProductName(childItem?.productId)}}</mat-list-item>
-              <!-- <mat-list-item class="product-picture"><img [src]="getProductPhoto(childItem?.productId)"></mat-list-item> -->
               <mat-list-item class="product-price">{{childItem?.productPrice}}<button mat-button (click)="deleteItem()"><mat-icon>delete</mat-icon></button></mat-list-item>
        </mat-list>
 </mat-card>

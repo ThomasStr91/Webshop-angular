@@ -62,6 +62,11 @@ export class LoginService {
     return of(false);
   }
 
+  logout() {
+    this.isLoggedInAdmin.next(false);
+    localStorage.removeItem('currentUser');
+  }
+  
   getIsLoggedIn(): Observable<boolean> {
     return this.isLoggedIn.asObservable();
   }

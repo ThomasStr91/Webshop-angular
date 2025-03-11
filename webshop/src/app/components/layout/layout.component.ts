@@ -48,8 +48,8 @@ export class LayoutComponent implements OnInit, OnDestroy {
     return localStorage.getItem('currentUser') !== null;
   }
 
-  logout() {
-    localStorage.removeItem('currentUser');
-    this.router.navigate(['/']);
+  logout(): void {
+    this.loginService.logout();  
+    this.router.navigate(['/']);  
   }
 }

@@ -25,21 +25,23 @@ export class ProductComponent {
 
   @Input() childProduct: Goods | undefined;
 
-  constructor(private userService: UserService, private basketService: BasketService) {
+  constructor(private basketService: BasketService) {
   }
 
   addToBasket() {
     if (this.childProduct) {
       const { productId, price } = this.childProduct;
-      this.basketService.addToBasket(productId, price).subscribe(response => {
-        console.log("Produkt wurde zum Warenkorb hinzugefügt", response);
-      }, error => {
-        console.error("Fehler beim Hinzufügen zum Warenkorb", error);
-      });
-      console.log("Test");
-      
+      this.basketService.addToBasket(productId, price).subscribe(
+        {
+          next: (response) => {
+            console.log("Produkt wurde zum Warenkorb hinzugefügt", response);
+          },
+          error(error) {
+            console.error("Fehler beim Hinzufügen zum Warenkorb", error);
+          }
+        }
+      );
     }
   }
 }
-
 
