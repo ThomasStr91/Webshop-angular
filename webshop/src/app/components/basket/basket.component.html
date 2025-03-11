@@ -1,11 +1,11 @@
-<section *ngIf="basketItems.length > 0; else emptyBasket" class="basketview">
-    <app-basket-list *ngFor="let item of basketItems" [childItem]="item"> </app-basket-list>
+<section *ngIf="basketSubject.value.length > 0; else emptyBasket" class="basketview">
+    <app-basket-list *ngFor="let item of basketSubject.value" [childItem]="item"  [basketList]="basketSubject"> </app-basket-list>
 </section>
 
 
 <mat-card class="checkout">
     <h2>Gesamtpreis: {{ getTotalPrice()}}</h2>
-    <button mat-button (click)="deleteBasket()">Warenkorb leeren</button>
+    <!-- <button mat-button (click)="deleteBasket()">Warenkorb leeren</button> -->
     <button mat-button (click)="sendOrder()">Bestellung abschicken</button>
 </mat-card>
 

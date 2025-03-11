@@ -62,6 +62,11 @@ export class UserManagementComponent {
   }
   ;
 
+  //---------------
+  addUser(){
+
+  }
+
   updateUser(updatedUser: User) {
     this.userService.updateUser(updatedUser).subscribe(() => {
       let usersArray = this.usersSubject.getValue()

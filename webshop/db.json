@@ -16,7 +16,7 @@
       "id": "59fe",
       "userName": "Dominik",
       "userPassword": "Dominik",
-      "userRole": "User"
+      "userRole": "Admin"
     },
     {
       "id": "1000",
@@ -87,12 +87,6 @@
       "userId": "admin"
     },
     {
-      "id": "1b85",
-      "productId": "0",
-      "productPrice": 2.99,
-      "userId": "{\"userName\":\"admin\",\"role\":\"Admin\"}"
-    },
-    {
       "id": "fc39",
       "productId": "0",
       "productPrice": 2.99,
@@ -123,7 +117,7 @@
       "userId": "{\"userName\":\"Thomas\",\"role\":\"User\"}"
     },
     {
-      "id": "df4e",
+      "id": "bb96",
       "productId": "1",
       "productPrice": 30.47,
       "userId": "{\"userName\":\"admin\",\"role\":\"Admin\"}"

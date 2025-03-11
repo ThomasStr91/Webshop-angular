@@ -9,6 +9,7 @@ import { Goods } from '../../interfaces/goods';
 import { ProductService } from '../../services/product.service';
 import {MatListModule} from '@angular/material/list';
 import { MatIcon } from '@angular/material/icon';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-basket-list',
@@ -18,16 +19,14 @@ import { MatIcon } from '@angular/material/icon';
 })
 export class BasketListComponent implements OnInit {
 
-    @Input() childItem: BasketItem | undefined;
+  @Input() childItem: BasketItem | undefined;
+  @Input() basketList!: BehaviorSubject<BasketItem[]>;
 
-    basketItems: BasketItem[] = [];
     goods: Goods [] =[]
 
     constructor(private basketService: BasketService, private productService: ProductService) {}
 
     ngOnInit(): void {
-      this.loadBasketItems();
-
       this.productService.getAllProducts().subscribe(goods => {
         this.goods = goods;
       })
@@ -41,18 +40,17 @@ export class BasketListComponent implements OnInit {
       return this.goods.find(pro => productId === pro.productId)?.picture || 'Kein Bild vorhanden';
     }
   
-    loadBasketItems(): void {
-      this.basketService.getBasket().subscribe((items: BasketItem[]) => {
-        this.basketItems = items;
-      });
-    }
-
     deleteItem(){
       if(this.childItem) {
       if (this.childItem && this.childItem.productId){
       this.basketService.deleteItem(this.childItem?.id).subscribe((deleteItem: BasketItem) => {
         console.log(deleteItem);
-        this.basketService.getBasket()
+        let basket = this.basketList.getValue()
+        const index = basket.findIndex(u => u.id === this.childItem?.id);
+        if (index !== -1) {
+          basket.splice(index, 1)
+          this.basketList.next(basket)
+        }
       })}
     }}
 }
