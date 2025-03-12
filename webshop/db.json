@@ -4,28 +4,40 @@
       "id": "4cbc",
       "userName": "Thomas",
       "userPassword": "Thomas",
-      "userRole": "Admin"
+      "userRole": "Admin",
+      "userEmail": "ThomasS@Sviss.at"
     },
     {
       "id": "bdb5",
       "userName": "Robert",
       "userPassword": "Robert",
-      "userRole": "User"
+      "userRole": "User",
+      "userEmail": "Robert@Sviss.at"
     },
     {
       "id": "59fe",
       "userName": "Dominik",
       "userPassword": "Dominik",
-      "userRole": "Admin"
+      "userRole": "Admin",
+      "userEmail": "Dominik@Sviss.at"
     },
     {
       "id": "1000",
       "userName": "admin",
       "userPassword": "admin",
-      "userRole": "Admin"
+      "userRole": "Admin",
+      "userEmail": "admin@Sviss.at"
+    },
+    {
+      "id": "",
+      "userName": "Hendrik",
+      "userEmail": "Hendrik@Sviss.at",
+      "userRole": "Admin",
+      "userPassword": "pw",
+      "cart": []
     }
   ],
-  "goods": [
+  "products": [
     {
       "productId": "0",
       "productName": "Tiger",

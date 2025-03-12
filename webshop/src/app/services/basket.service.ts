@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { Goods } from '../interfaces/goods';
+import { Product } from '../interfaces/product';
 import { BasketItem } from '../interfaces/basket-item';
 
 @Injectable({
@@ -10,16 +10,16 @@ import { BasketItem } from '../interfaces/basket-item';
 export class BasketService {
 
 
-  private goods: Goods[] = [];
+  private goods: Product[] = [];
 
   private static BASKET_URL ="http://localhost:3000/basket"
-  private static GOODS_URL = "http://localhost:3000/goods"; 
+  private static GOODS_URL = "http://localhost:3000/products"; 
 
 
   constructor( private httpClient: HttpClient) { this.getGoods();}
 
   private getGoods(){
-      this.httpClient.get<Goods[]>(BasketService.GOODS_URL).subscribe((data)=>{
+      this.httpClient.get<Product[]>(BasketService.GOODS_URL).subscribe((data)=>{
         this.goods = data;
       })
   }

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Goods } from '../../interfaces/goods';
+import { Product } from '../../interfaces/product';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
@@ -23,7 +23,7 @@ import { BasketService } from '../../services/basket.service';
 export class ProductComponent {
 
 
-  @Input() childProduct: Goods | undefined;
+  @Input() childProduct: Product | undefined;
 
   constructor(private basketService: BasketService) {
   }

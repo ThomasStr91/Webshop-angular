@@ -19,7 +19,6 @@ export class LoginService {
   constructor(private userService: UserService,
     private router: Router,
     private snackBar: MatSnackBar) {
-
     this.userService.getAllUsers().subscribe((data: User[]) => {
       this.users = data;
     });
@@ -27,11 +26,8 @@ export class LoginService {
 
 
   validateLogin(userName: string, password: string): Observable<boolean> {
-    // 🔍 Benutzer in der DB suchen
     const user = this.users.find(u => u.userName === userName && u.userPassword === password);
-
     if (user) {
-
       this.currentUser = user;
       localStorage.setItem('currentUser', user.userName);
 
@@ -66,7 +62,7 @@ export class LoginService {
     this.isLoggedInAdmin.next(false);
     localStorage.removeItem('currentUser');
   }
-  
+
   getIsLoggedIn(): Observable<boolean> {
     return this.isLoggedIn.asObservable();
   }

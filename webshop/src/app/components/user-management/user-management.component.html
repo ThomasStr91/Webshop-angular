@@ -1,17 +1,25 @@
+<button mat-flat-button class="add-button" (click)="addUser()"> Add User</button>
+
 <section class="container">
     <table mat-table [dataSource]="usersSubject.asObservable()" class="user-table mat-elevation-z8  ">
-    <!-- Username Column -->
+   
     <ng-container matColumnDef="userName">
       <th mat-header-cell *matHeaderCellDef> Username </th>
       <td mat-cell *matCellDef="let element"> {{ element.userName }} </td>
     </ng-container>
   
-    <!-- Rolle Column -->
+    <ng-container matColumnDef="userEmail">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{ element.userEmail }} </td>
+    </ng-container>
+
+  
     <ng-container matColumnDef="userRole">
       <th mat-header-cell *matHeaderCellDef> Rolle </th>
       <td mat-cell *matCellDef="let element"> {{ element.userRole }} </td>
     </ng-container>
 
+   
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Aktionen </th>
         <td mat-cell *matCellDef="let element">
@@ -25,3 +33,4 @@
   </table>
 
 </section>
+

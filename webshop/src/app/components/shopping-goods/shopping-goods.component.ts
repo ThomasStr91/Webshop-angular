@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductComponent } from "../product/product.component";
-import { Goods } from '../../interfaces/goods';
-import { BasketService } from '../../services/basket.service';
+import { Product } from '../../interfaces/product';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../services/product.service';
 
@@ -16,11 +15,11 @@ import { ProductService } from '../../services/product.service';
   styleUrl: './shopping-goods.component.scss'
 })
 export class ShoppingGoodsComponent {
-  products: Goods[] = [];
+  products: Product[] = [];
 
   constructor(private productService: ProductService){
 
-    productService.getAllProducts().subscribe((data: Goods[]) => {
+    productService.getAllProducts().subscribe((data: Product[]) => {
       this.products = data; 
     })
   }

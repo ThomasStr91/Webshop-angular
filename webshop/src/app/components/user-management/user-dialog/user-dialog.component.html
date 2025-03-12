@@ -1,11 +1,16 @@
 <h2 mat-dialog-title>User Bearbeiten</h2>
 <mat-dialog-content>
     <mat-form-field>
-        <mat-label>UserName</mat-label>
+        <mat-label>userName</mat-label>
         <input matInput [(ngModel)]="user.userName">
     </mat-form-field>
 
-    <!-- Rollenauswahl als Dropdown -->
+    <mat-form-field>
+        <mat-label>userEmail</mat-label>
+        <input matInput [(ngModel)]="user.userEmail">
+    </mat-form-field>
+
+    
     <mat-form-field>
         <mat-label>Rolle</mat-label>
         <mat-select [(ngModel)]="user.userRole">

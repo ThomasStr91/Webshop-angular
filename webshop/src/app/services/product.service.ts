@@ -1,18 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Goods } from '../interfaces/goods';
+import { Product } from '../interfaces/product';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-    private static USERS_URL = "http://localhost:3000/goods"
+    private static USERS_URL = "http://localhost:3000/products"
   constructor(private httpClient: HttpClient) { }
 
-    getAllProducts(): Observable<Goods[]>{
-    return this.httpClient.get<Goods[]>(ProductService.USERS_URL)
+    getAllProducts(): Observable<Product[]>{
+    return this.httpClient.get<Product[]>(ProductService.USERS_URL)
     
   }
 }

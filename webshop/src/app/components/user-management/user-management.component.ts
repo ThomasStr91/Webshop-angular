@@ -1,34 +1,21 @@
 import { Component, inject } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../interfaces/user';
-import { MatList, MatListItem } from '@angular/material/list';
 import { MatButton } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
-import {
-  MatDialog,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-  MatDialogModule,
-  MatDialogRef,
-  MatDialogTitle,
-} from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-user-management',
-  imports: [MatList,
+  imports: [
     MatButton,
     CommonModule,
-    MatListItem,
     MatTableModule,
     MatDialogModule,
-    MatDialogActions,
-    MatDialogClose,
-    MatDialogContent,
-    MatDialogTitle
+    MatButton
   ],
   templateUrl: './user-management.component.html',
   styleUrl: './user-management.component.scss'
@@ -39,11 +26,10 @@ export class UserManagementComponent {
 
   usersSubject = new BehaviorSubject<User[]>([])
 
-  displayedColumns: string[] = ['userName', 'userRole', 'actions']
+  displayedColumns: string[] = ['userName','userEmail', 'userRole', 'actions']
 
   constructor(private userService: UserService) {
-
-    userService.getAllUsers().subscribe((data: User[]) => {
+       userService.getAllUsers().subscribe((data: User[]) => {
       this.usersSubject.next(data);
     })
   }
@@ -62,8 +48,29 @@ export class UserManagementComponent {
   }
   ;
 
-  //---------------
+
   addUser(){
+    const emptyUser: User = {
+      id: '', 
+      userName:'', 
+      userEmail:'', 
+      userRole:'User', 
+      userPassword:'pw',
+      cart: []
+    }
+    const dialogRef = this.dialog.open(UserDialogComponent, {
+      width: '400px',
+      data: emptyUser
+    })
+
+    dialogRef.afterClosed().subscribe((newUser: User) => {
+      if(newUser) {
+        this.userService.createUser(newUser).subscribe((createdUser) => {
+          const usersArray = this.usersSubject.getValue();
+          this.usersSubject.next([...usersArray, createdUser]);
+        })
+      }
+    })
 
   }
 

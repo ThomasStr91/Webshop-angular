@@ -5,7 +5,7 @@ import { BasketComponent } from '../basket/basket.component';
 import { CommonModule } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { BasketService } from '../../services/basket.service';
-import { Goods } from '../../interfaces/goods';
+import { Product } from '../../interfaces/product';
 import { ProductService } from '../../services/product.service';
 import {MatListModule} from '@angular/material/list';
 import { MatIcon } from '@angular/material/icon';
@@ -22,7 +22,7 @@ export class BasketListComponent implements OnInit {
   @Input() childItem: BasketItem | undefined;
   @Input() basketList!: BehaviorSubject<BasketItem[]>;
 
-    goods: Goods [] =[]
+    goods: Product [] =[]
 
     constructor(private basketService: BasketService, private productService: ProductService) {}
 

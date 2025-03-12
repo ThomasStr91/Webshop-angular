@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
 import { BehaviorSubject } from 'rxjs';
-import { Goods } from '../../interfaces/goods';
 
 @Component({
   selector: 'app-basket',

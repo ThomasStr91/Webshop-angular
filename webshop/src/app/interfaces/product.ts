@@ -1,4 +1,4 @@
-export interface Goods {
+export interface Product {
     productId: string, 
     productName: string, 
     description: string, 
