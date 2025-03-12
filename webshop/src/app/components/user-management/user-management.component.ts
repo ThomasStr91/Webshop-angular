@@ -51,7 +51,7 @@ export class UserManagementComponent {
 
   addUser(){
     const emptyUser: User = {
-      id: '', 
+      id: crypto.randomUUID(), 
       userName:'', 
       userEmail:'', 
       userRole:'User', 
@@ -65,6 +65,8 @@ export class UserManagementComponent {
 
     dialogRef.afterClosed().subscribe((newUser: User) => {
       if(newUser) {
+
+        newUser.userEmail = `${newUser.userName}@sviss.at`;
         this.userService.createUser(newUser).subscribe((createdUser) => {
           const usersArray = this.usersSubject.getValue();
           this.usersSubject.next([...usersArray, createdUser]);
@@ -85,4 +87,15 @@ export class UserManagementComponent {
     });
   }
 
+  deleteUser(user: User){
+    this.userService.deleteUser(user).subscribe(() => {
+      let userArray = this.usersSubject.getValue(); 
+
+      const index = userArray.findIndex(u => u.id ===user.id);
+      if (index !== -1){
+        userArray.splice(index, 1);
+        this.usersSubject.next(userArray)
+      }
+    })
+  }
 }

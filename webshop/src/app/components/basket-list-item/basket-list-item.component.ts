@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatCard, MatCardContent } from '@angular/material/card';
+import { MatCard } from '@angular/material/card';
 import { BasketItem } from '../../interfaces/basket-item';
-import { BasketComponent } from '../basket/basket.component';
 import { CommonModule } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { BasketService } from '../../services/basket.service';
@@ -13,11 +12,11 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-basket-list',
-  imports: [MatCard, MatCardContent, CommonModule, MatButton, MatListModule, MatIcon],
-  templateUrl: './basket-list.component.html',
-  styleUrl: './basket-list.component.scss'
+  imports: [MatCard, CommonModule, MatButton, MatListModule, MatIcon],
+  templateUrl: './basket-list-item.component.html',
+  styleUrl: './basket-list-item.component.scss'
 })
-export class BasketListComponent implements OnInit {
+export class BasketListItemComponent implements OnInit {
 
   @Input() childItem: BasketItem | undefined;
   @Input() basketList!: BehaviorSubject<BasketItem[]>;
@@ -36,9 +35,9 @@ export class BasketListComponent implements OnInit {
       return this.goods.find(product => productId === product.productId)?.productName || 'Unbekanntes Produkt';
     }
 
-    getProductPhoto(productId: string | undefined): string {
-      return this.goods.find(pro => productId === pro.productId)?.picture || 'Kein Bild vorhanden';
-    }
+    // getProductPhoto(productId: string | undefined): string {
+    //   return this.goods.find(pro => productId === pro.productId)?.picture || 'Kein Bild vorhanden';
+    // }
   
     deleteItem(){
       if(this.childItem) {

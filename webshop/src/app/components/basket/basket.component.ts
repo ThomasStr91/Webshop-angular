@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { BasketItem } from '../../interfaces/basket-item';
 import { BasketService } from '../../services/basket.service';
-import { BasketListComponent } from "../basket-list/basket-list.component";
+import { BasketListItemComponent } from "../basket-list-item/basket-list-item.component";
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-basket',
-  imports: [BasketListComponent, CommonModule, MatCardModule, MatButton],
+  imports: [BasketListItemComponent, CommonModule, MatCardModule, MatButton],
   templateUrl: './basket.component.html',
   styleUrl: './basket.component.scss'
 })
@@ -26,9 +26,12 @@ export class BasketComponent {
     })
   }
 
-  // deleteBasket(){
-  //   this.basketService.clearBasket()
-  // }
+  clearBasket(){
+    this.basketService.clearBasket().subscribe(() => {
+      this.basketSubject.next([]); 
+    })
+   
+  }
 
   sendOrder(){
 

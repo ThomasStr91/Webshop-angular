@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { forkJoin, map, Observable, switchMap } from 'rxjs';
 import { Product } from '../interfaces/product';
 import { BasketItem } from '../interfaces/basket-item';
 
@@ -47,14 +47,23 @@ export class BasketService {
     return this.httpClient.delete<BasketItem>(url)
   }
 
-  clearBasket(){
+  clearBasket(): Observable<void> {
     const user = localStorage.getItem("currentUser");
-    if(user){
-      this.getBasket().subscribe(items => {
-        items.forEach(item => {
-          this.httpClient.delete(`${BasketService.BASKET_URL}/${item.id}`).subscribe;
+    if (user) {
+      return this.getBasket().pipe(
+        map(basketItems => {
+          // Löscht alle Artikel im Warenkorb des Benutzers
+          const deleteRequests = basketItems.map(item =>
+            this.httpClient.delete(`${BasketService.BASKET_URL}/${item.id}`)
+          );
+          return deleteRequests;
+        }),
+        switchMap(deleteRequests => {
+          // Warten auf alle Lösch-Anfragen, bevor wir das Observable beenden
+          return forkJoin(deleteRequests).pipe(map(() => {}));
         })
-      })
+      );
     }
+    return new Observable<void>();  // Gibt ein leeres Observable zurück, wenn kein Benutzer gefunden wurde
   }
 }

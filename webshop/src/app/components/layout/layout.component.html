@@ -1,24 +1,29 @@
 <mat-toolbar>
-    <button class="title-button" routerLink="shopping-goods">GetItAll </button>
-    <!-- <div class="greetin-container">
+  <button class="title-button" routerLink="shopping-goods">GetItAll </button>
+  <!-- <div class="greetin-container">
     <span class="greeting">Willkommen, {{ user }}</span>
   </div> -->
-    <span class="example-spacer"></span>
- 
-    <button mat-button routerLink="user" *ngIf="admin">Userverwaltung</button>
+  <span class="example-spacer"></span>
 
-    <button mat-icon-button class="example-icon" routerLink="basket">
-      <mat-icon>shopping_cart</mat-icon>
-    </button>
-<div>
+  <button mat-button routerLink="users" *ngIf="admin">Userverwaltung</button>
 
-  <button mat-button *ngIf="isLoggedIn(); 
+  <button mat-icon-button class="example-icon" routerLink="basket">
+    <mat-icon>shopping_cart</mat-icon>
+  </button>
+
+  <div>
+    <button mat-button (click)="logout()" *ngIf="isLoggedIn()" >Logout</button>
+    <button mat-button   *ngIf="!isLoggedIn()" routerLink="login">Login</button>
+  </div>
+
+  <!-- <div>
+    <button mat-button *ngIf="isLoggedIn(); 
   else loginButton" (click)="logout()">Logout</button>
 
-  <ng-template #loginButton>
-    <button mat-button class="example-icon" routerLink="/">Login</button>
-  </ng-template>
-  </div>
+    <ng-template #loginButton>
+      <button mat-button class="example-icon" routerLink="/">Login</button>
+    </ng-template>
+  </div> -->
 </mat-toolbar>
 
 <router-outlet></router-outlet>

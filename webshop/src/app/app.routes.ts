@@ -11,6 +11,6 @@ export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full'},
     { path: 'shopping-goods', component: ShoppingGoodsComponent },
     { path: 'basket', component: BasketComponent},
-    { path: 'user', component: UserManagementComponent},
+    { path: 'users', component: UserManagementComponent},
     { path: '**', component: PageNotFoundComponent },
 ];

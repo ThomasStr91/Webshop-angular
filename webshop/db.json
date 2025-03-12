@@ -1,37 +1,41 @@
 {
   "users": [
     {
-      "id": "4cbc",
-      "userName": "Thomas",
-      "userPassword": "Thomas",
-      "userRole": "Admin",
-      "userEmail": "ThomasS@Sviss.at"
-    },
-    {
-      "id": "bdb5",
-      "userName": "Robert",
-      "userPassword": "Robert",
-      "userRole": "User",
-      "userEmail": "Robert@Sviss.at"
-    },
-    {
-      "id": "59fe",
-      "userName": "Dominik",
-      "userPassword": "Dominik",
-      "userRole": "Admin",
-      "userEmail": "Dominik@Sviss.at"
-    },
-    {
-      "id": "1000",
+      "id": "d6d46759-4028-4210-ae40-88b66c021df3",
       "userName": "admin",
-      "userPassword": "admin",
+      "userEmail": "admin@sviss.at",
       "userRole": "Admin",
-      "userEmail": "admin@Sviss.at"
+      "userPassword": "admin",
+      "cart": []
     },
     {
-      "id": "",
-      "userName": "Hendrik",
-      "userEmail": "Hendrik@Sviss.at",
+      "id": "14f68abd-48b0-4f36-a75e-1c0604daf82a",
+      "userName": "Thomas",
+      "userEmail": "Thomas@sviss.at",
+      "userRole": "User",
+      "userPassword": "pw",
+      "cart": []
+    },
+    {
+      "id": "60de3b47-4d1b-4d10-af22-732e851ea53b",
+      "userName": "Robert",
+      "userEmail": "Robert@sviss.at",
+      "userRole": "User",
+      "userPassword": "pw",
+      "cart": []
+    },
+    {
+      "id": "0ebe1f17-d983-4537-a83f-46e70362bbc1",
+      "userName": "Dominik",
+      "userEmail": "Dominik@sviss.at",
+      "userRole": "User",
+      "userPassword": "pw",
+      "cart": []
+    },
+    {
+      "id": "78e19c5c-7527-476a-8dc1-f928cdc12e63",
+      "userName": "Sebastian",
+      "userEmail": "Sebastian@sviss.at",
       "userRole": "Admin",
       "userPassword": "pw",
       "cart": []
@@ -129,10 +133,16 @@
       "userId": "{\"userName\":\"Thomas\",\"role\":\"User\"}"
     },
     {
-      "id": "bb96",
-      "productId": "1",
-      "productPrice": 30.47,
-      "userId": "{\"userName\":\"admin\",\"role\":\"Admin\"}"
+      "id": "6cdb",
+      "productId": "0",
+      "productPrice": 2.99,
+      "userId": ""
+    },
+    {
+      "id": "5a2e",
+      "productId": "0",
+      "productPrice": 2.99,
+      "userId": ""
     }
   ]
 }
