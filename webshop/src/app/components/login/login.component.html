@@ -1,6 +1,6 @@
 <div class="container">
     <mat-card appearance="outlined" class="login-card">
-      <mat-card-content>
+      <mat-card-content (keydown.enter)="login()">
         <h2>Login</h2>
         <mat-form-field>
           <mat-label>Username</mat-label>

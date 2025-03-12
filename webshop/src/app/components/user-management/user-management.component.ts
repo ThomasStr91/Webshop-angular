@@ -29,7 +29,7 @@ export class UserManagementComponent {
   displayedColumns: string[] = ['userName','userEmail', 'userRole', 'actions']
 
   constructor(private userService: UserService) {
-       userService.getAllUsers().subscribe((data: User[]) => {
+      userService.getAllUsers().subscribe((data: User[]) => {
       this.usersSubject.next(data);
     })
   }

@@ -37,7 +37,15 @@ export class BasketComponent {
 
   }
 
-  getTotalPrice(){
-    return this.basketSubject.value.reduce((total, item) => total + item.productPrice, 0)
+  getTotalPrice() : number{
+    let sum: number = 0; 
+    for(let item of this.basketSubject.value){
+      sum += item.productPrice;
+    }
+    return sum;
   }
+  
+  // getTotalPrice(){
+  //   return this.basketSubject.value.reduce((total, item) => total + item.productPrice, 0)
+  // }
 }
